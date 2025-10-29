@@ -1,21 +1,39 @@
 "use client";
 
+import { seIsAuthenticated, setAuthUser } from "@/redux/slice/authSlice";
+
+import Cookies from "js-cookie";
+import { LogOut, Settings } from "lucide-react";
 import Link from "next/link";
-import { TAB_MENU } from "./dashboard.data";
-import { usePathname } from "next/navigation";
-import { Settings } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
 import Button from "../ui/Button";
+import { TAB_MENU } from "./dashboard.data";
 
 const TabMenu = () => {
   const pathName = usePathname();
+  const router = useRouter();
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    // Clear the token cookie
+    Cookies.remove("token");
+    // Reset auth state
+    dispatch(setAuthUser(null));
+    dispatch(seIsAuthenticated(false));
+    // Redirect to login
+    router.push("/login");
+  };
+
+  console.log("✌️pathName --->", pathName);
   return (
     <div className="mt-10 flex flex-col-reverse lg:flex-row lg:justify-between lg:items-center gap-4">
       <div className="flex justify-between items-center gap-5 overflow-x-auto">
         {TAB_MENU.map((item) => (
           <Link
-            className={`text-nowrap text-[12px] mb-1.5 lg:mb-0 leading-[18px] font-inter font-semibold text-white/80 flex items-center gap-2.5 py-2 px-[14px] hover:bg-[#2C2C2C] hover:text-white rounded-[50px] ${pathName.endsWith(
-              item.link && "bg-[#2C2C2C]"
-            )}`}
+            className={`text-nowrap text-[12px] mb-1.5 lg:mb-0 leading-[18px] font-inter font-semibold text-white/80 flex items-center gap-2.5 py-2 px-[14px] hover:bg-[#2C2C2C] hover:text-white rounded-[50px] ${
+              pathName.endsWith(item.link) ? "bg-[#2C2C2C]" : ""
+            }`}
             href={`${
               item?.link === "/dashboard"
                 ? "/dashboard"
@@ -83,11 +101,19 @@ const TabMenu = () => {
 
         <Link
           className="bg-[#143343] py-2 px-[14px] rounded-[50px] font-inter text-white/80 text-[12px] leading-[18px] font-semibold flex justify-center items-center gap-2"
-          href={"/dashboard/setting "}
+          href={"/dashboard/setting"}
         >
           <Settings className="size-[16px]" />
           Setting
         </Link>
+
+        <button
+          onClick={handleLogout}
+          className="bg-gradient-to-r from-[#FF4444] to-[#FF6B35] py-2 px-[14px] rounded-[50px] font-inter text-white text-[12px] leading-[18px] font-semibold flex justify-center items-center gap-2 hover:from-[#FF5555] hover:to-[#FF7B4A] transition-all shadow-lg hover:shadow-xl cursor-pointer"
+        >
+          <LogOut className="size-[16px]" />
+          Logout
+        </button>
       </div>
     </div>
   );

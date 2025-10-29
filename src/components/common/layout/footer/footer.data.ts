@@ -70,8 +70,8 @@ export const FOOTER_LINKS = [
         link: "/collections",
       },
       {
-        title: "SealPass Membership",
-        link: "/seals",
+        title: "GG Membership",
+        link: "/gg-membership",
       },
     ],
   },
