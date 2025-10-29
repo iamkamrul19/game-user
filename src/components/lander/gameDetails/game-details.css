@@ -1,0 +1,14 @@
+@keyframes glow-sweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-glow-border {
+  background: linear-gradient(120deg, #adee68, #863ab7, #adee68);
+  background-size: 200% auto;
+  animation: glow-sweep 4s linear infinite;
+}
