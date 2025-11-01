@@ -1,13 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import React, { Dispatch, SetStateAction, useEffect } from "react";
-import { ISection } from ".";
 import GlobalLoader from "@/components/common/loader/GlobalLoader";
-import PaymentTitle from "./PaymentTitle";
-import PaymentItems from "./PaymentItems";
-import { useAppSelector } from "@/redux/hooks";
 import { useConfirmOrderMutation } from "@/redux/api/checkoutApi";
+import { useAppSelector } from "@/redux/hooks";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import toast from "react-hot-toast";
+import { ISection } from ".";
+import PaymentItems from "./PaymentItems";
+import PaymentTitle from "./PaymentTitle";
 
 interface Props {
   setSection: Dispatch<SetStateAction<ISection>>;

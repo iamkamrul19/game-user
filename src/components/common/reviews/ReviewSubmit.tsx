@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import {
@@ -8,15 +9,15 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { useCreateReviewMutation } from "@/redux/api/reviewApi";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import z from "zod";
-import { reviewSchema } from "./review.schema";
-import { zodResolver } from "@hookform/resolvers/zod";
 import Avatar from "../Avatar";
 import ErrorMessage from "../ErrorMessage";
-import toast from "react-hot-toast";
-import { useCreateReviewMutation } from "@/redux/api/reviewApi";
+import { reviewSchema } from "./review.schema";
 
 interface Props {
   open: boolean;

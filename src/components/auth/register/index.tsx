@@ -1,21 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { registerSchema } from "./register.schema";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Controller, useForm } from "react-hook-form";
 import ErrorMessage from "@/components/common/ErrorMessage";
 import Button from "@/components/ui/Button";
-import Link from "next/link";
-import toast from "react-hot-toast";
-import { seIsAuthenticated, setAuthUser } from "@/redux/slice/authSlice";
-import Cookies from "js-cookie";
-import { useRegisterMutation } from "@/redux/api/authApi";
-import { useAppSelector } from "@/redux/hooks";
 import {
   Select,
   SelectContent,
@@ -23,8 +10,22 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useRegisterMutation } from "@/redux/api/authApi";
 import { useGetCountryListListQuery } from "@/redux/api/countryApi";
+import { useAppSelector } from "@/redux/hooks";
+import { seIsAuthenticated, setAuthUser } from "@/redux/slice/authSlice";
 import { showMultiple } from "@/utils/notification";
+import { zodResolver } from "@hookform/resolvers/zod";
+import Cookies from "js-cookie";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { Controller, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { z } from "zod";
+import { registerSchema } from "./register.schema";
 // import { getIPAddress } from "@/service/ip.service";
 
 const Register = () => {

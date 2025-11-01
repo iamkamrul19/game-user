@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { DASHBOARD_PATHS } from "@/components/dashbaord/dashboard.data";
 import DashboardHero from "@/components/dashbaord/Hero";
 import TabMenu from "@/components/dashbaord/TabMenu";
 import { usePathname, useRouter } from "next/navigation";
-import React, { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect } from "react";
 
 interface Props {
   children: ReactNode;

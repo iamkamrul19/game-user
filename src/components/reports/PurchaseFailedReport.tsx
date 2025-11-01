@@ -1,16 +1,9 @@
-import React from "react";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Controller, useForm } from "react-hook-form";
-import z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { purchaseReportSchema } from "./reports.schema";
-import { Label } from "../ui/label";
-import ErrorMessage from "../common/ErrorMessage";
 import {
   Select,
   SelectContent,
@@ -18,7 +11,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Controller, useForm } from "react-hook-form";
+import z from "zod";
+import ErrorMessage from "../common/ErrorMessage";
 import ImageUpload from "../ui/ImageUpload";
+import { Label } from "../ui/label";
+import { purchaseReportSchema } from "./reports.schema";
 
 interface Props {
   open: boolean;
@@ -62,7 +61,7 @@ const PurchaseFailedReport = ({ open, setOpen }: Props) => {
                   <Controller
                     control={form.control}
                     name="problem_type"
-                    render={({ field }) => (
+                    render={() => (
                       <Select>
                         <SelectTrigger className="w-full">
                           <SelectValue placeholder="Theme" />
@@ -86,7 +85,7 @@ const PurchaseFailedReport = ({ open, setOpen }: Props) => {
                   <Controller
                     control={form.control}
                     name="problem_type"
-                    render={({ field }) => (
+                    render={() => (
                       <Select>
                         <SelectTrigger className="w-full">
                           <SelectValue placeholder="Theme" />
@@ -161,7 +160,7 @@ const PurchaseFailedReport = ({ open, setOpen }: Props) => {
                 <Controller
                   control={form.control}
                   name="message"
-                  render={({ field }) => (
+                  render={() => (
                     <textarea
                       className="bg-[#161616] border-[1px] border-[#F9F9F999] rounded-[12px] text-[#DEDEDE] p-3"
                       placeholder="Enter the message"

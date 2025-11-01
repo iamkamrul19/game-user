@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { CHECKOUT_PATHS } from "@/components/lander/checkout/checkout.data";
@@ -6,7 +7,7 @@ import { useAddToCartMutation } from "@/redux/api/checkoutApi";
 import { useAppSelector } from "@/redux/hooks";
 import { setCartLoading, setCoupon } from "@/redux/slice/checkoutSlice";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import React, { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 

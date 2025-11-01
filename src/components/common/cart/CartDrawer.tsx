@@ -1,18 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { Drawer, DrawerContent, DrawerTitle } from "@/components/ui/drawer";
+import { useAddToCartMutation } from "@/redux/api/checkoutApi";
 import { useAppSelector } from "@/redux/hooks";
+import { setCheckoutGames } from "@/redux/slice/checkoutSlice";
 import { setIsCartOpen } from "@/redux/slice/globalSlice";
-import { useDispatch } from "react-redux";
+import { ICheckoutGame } from "@/types";
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { IoClose } from "react-icons/io5";
+import { useDispatch } from "react-redux";
 import Button from "../../ui/Button";
 import SingleCart from "./SingleCart";
-import { useEffect } from "react";
-import Cookies from "js-cookie";
-import { ICheckoutGame } from "@/types";
-import { setCheckoutGames } from "@/redux/slice/checkoutSlice";
-import { useRouter } from "next/navigation";
-import { useAddToCartMutation } from "@/redux/api/checkoutApi";
 const CartDrawer = () => {
   const router = useRouter();
   const dispatch = useDispatch();

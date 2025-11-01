@@ -1,25 +1,26 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import { useLazyGetSingleOrderQuery } from "@/redux/api/orderApi";
-import { IOrder } from "@/types";
-import { ArrowLeft, CircleCheckIcon, CopyIcon, Edit2Icon } from "lucide-react";
-import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import OrderCard from "../myOders/OrderCard";
-import OrderCardSkeleton from "../myOders/OrderCardSkeleton";
-import copy from "copy-text-to-clipboard";
+import ErrorMessage from "@/components/common/ErrorMessage";
 import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog";
+import { useLazyGetSingleOrderQuery } from "@/redux/api/orderApi";
 import {
   useViewRequestMutation,
   useViewRequestVerifyMutation,
 } from "@/redux/api/tempAccessApi";
-import { Controller, useForm } from "react-hook-form";
-import z from "zod";
-import { otpSchema } from "./orderDetails.schema";
+import { IOrder } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
-import ErrorMessage from "@/components/common/ErrorMessage";
+import copy from "copy-text-to-clipboard";
+import { ArrowLeft, CircleCheckIcon, CopyIcon, Edit2Icon } from "lucide-react";
+import Link from "next/link";
+import { useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import z from "zod";
+import OrderCard from "../myOders/OrderCard";
+import OrderCardSkeleton from "../myOders/OrderCardSkeleton";
+import { otpSchema } from "./orderDetails.schema";
 const OrderDetails = () => {
   const [open, setOpen] = useState(false);
   const [isBlur, setIsBlur] = useState(true);

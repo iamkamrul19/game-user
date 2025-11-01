@@ -1,14 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import BreadCrumbs from "@/components/common/breadcrumbs";
+import NoData from "@/components/common/NoData";
+import Reviews from "@/components/common/reviews/Reviews";
 import { useLazyGetSingleCollectionQuery } from "@/redux/api/collectionApi";
 import { setGlobalLoading } from "@/redux/slice/globalSlice";
 import { ICollection, IGame } from "@/types";
 import { useParams, useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import GameCard from "./GameCard";
-import NoData from "@/components/common/NoData";
-import Reviews from "@/components/common/reviews/Reviews";
 import GameCardSkeleton from "./GameCardSkeleton";
 
 import {

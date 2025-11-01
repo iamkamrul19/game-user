@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Skeleton } from "@/components/ui/skeleton";
-import { useRouter, useSearchParams } from "next/navigation";
-import React, { Dispatch, SetStateAction, useEffect } from "react";
-import toast from "react-hot-toast";
-import { ISection } from ".";
-import { useDispatch } from "react-redux";
 import { setTransactionId } from "@/redux/slice/checkoutSlice";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Dispatch, SetStateAction, useEffect } from "react";
+import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { ISection } from ".";
 
 interface Props {
   setSection: Dispatch<SetStateAction<ISection>>;

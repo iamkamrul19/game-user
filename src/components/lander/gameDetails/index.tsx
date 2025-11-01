@@ -1,6 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import BreadCrumbs from "@/components/common/breadcrumbs";
+import SectionTitle from "@/components/common/SectionTitle";
+import InAppIcon from "@/components/icons/InAppIcon";
+import StarIcon from "@/components/icons/StarIcon";
 import { useLazyGetSingleGameByIdQuery } from "@/redux/api/gameApi";
 import { setGlobalLoading } from "@/redux/slice/globalSlice";
 import {
@@ -10,32 +14,24 @@ import {
   IRequirement,
   ISelectedGame,
 } from "@/types";
-import { useParams, useRouter } from "next/navigation";
-import ReactPlayer from "react-player";
-import { useEffect, useState } from "react";
-import PreviewCard from "./PreviewCard";
 import Image from "next/image";
-import SectionTitle from "@/components/common/SectionTitle";
-import StarIcon from "@/components/icons/StarIcon";
-import InAppIcon from "@/components/icons/InAppIcon";
+import { useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import ReactPlayer from "react-player";
 import InAppCard from "./InAppCard";
+import PreviewCard from "./PreviewCard";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import SystemCard from "./SystemCard";
-import AnotherCard from "./AnotherCard";
 import PriceSection from "@/components/common/PriceSection";
+import Reviews from "@/components/common/reviews/Reviews";
+import BluetoothIcon from "@/components/icons/BluetoothIcon";
 import BookmarkIcon from "@/components/icons/BookmarkIcon";
-import { OPTION_TYPE, PLATFORM } from "@/enum";
-import PCIcon from "@/components/icons/PCIcon";
-import XboxIcon from "@/components/icons/XboxIcon";
-import PSIcon from "@/components/icons/PSIcon";
-import DownloadIcon from "@/components/icons/DownloadIcon";
 import CheckIcon from "@/components/icons/CheckIcon";
 import CrossCircleIcon from "@/components/icons/CrossCircleIcon";
+import DownloadIcon from "@/components/icons/DownloadIcon";
+import PCIcon from "@/components/icons/PCIcon";
+import PSIcon from "@/components/icons/PSIcon";
+import XboxIcon from "@/components/icons/XboxIcon";
 import Button from "@/components/ui/Button";
-import BluetoothIcon from "@/components/icons/BluetoothIcon";
-import EditionCard from "./EditionCard";
-import Similars from "./Similars";
 import {
   Select,
   SelectContent,
@@ -43,16 +39,21 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { OPTION_TYPE, PLATFORM } from "@/enum";
+import { setCheckoutGame } from "@/redux/slice/checkoutSlice";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Controller, useFieldArray, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import z from "zod";
+import AnotherCard from "./AnotherCard";
+import EditionCard from "./EditionCard";
 import FieldControl from "./FieldControl";
 import "./game-details.css";
-import Reviews from "@/components/common/reviews/Reviews";
-import { useDispatch } from "react-redux";
-import { setCheckoutGame } from "@/redux/slice/checkoutSlice";
-import z from "zod";
-import { useForm, useFieldArray, Controller } from "react-hook-form";
 import { addToCartSchema } from "./gameDetailsSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import toast from "react-hot-toast";
+import Similars from "./Similars";
+import SystemCard from "./SystemCard";
 
 const GameDetails = () => {
   const dispatch = useDispatch();
