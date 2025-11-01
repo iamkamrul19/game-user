@@ -1,9 +1,8 @@
-import React from "react";
 import { SERVICES } from "./service.data";
 
 const Service = () => {
   return (
-    <section className="section">
+    <section className="section lg:!mt-[-60px]">
       <div className="main-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {SERVICES.map((service, index) => (
           <div

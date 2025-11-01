@@ -1,10 +1,9 @@
-import React from "react";
 import { WHY_GG_DATA } from "./why-gg.data";
 import WhyGGCard from "./WhyGGCard";
 
 const WhyGG = () => {
   return (
-    <section className="text-white font-poppins py-16 lg:py-[82px]">
+    <section className="text-white font-poppins py-16 lg:py-[62px]">
       <div className="main-container flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-[100px]">
         <h2 className="text-[24px] leading-[40px] font-bold max-w-[220px]">
           Why <span className="text-[#ADEE68]">GGSubscriptions?</span>

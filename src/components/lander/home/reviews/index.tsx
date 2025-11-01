@@ -1,24 +1,26 @@
 "use client";
 
 import SectionTitle from "@/components/common/SectionTitle";
-import React from "react";
 import ReviewCard from "./ReviewCard";
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
+import "swiper/css/pagination";
+import { EffectCoverflow, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const Reviews = () => {
   return (
     <section className="section">
       <div className="flex flex-col items-center">
-        <SectionTitle title="Customer Reviews" showIcon={false} />
+        <SectionTitle
+          title="See What Your Next Game Is Like"
+          showIcon={false}
+        />
         <p className="mt-6 text-white/80 text-[14px] leading-[23px] font-inter max-w-[380px] text-center">
-          GG Subscriptions offers cheaper PC, PlayStation, Xbox, and Switch
-          games with 24/7 instant delivery!
+          See what players think! These reviews focus on the actual games
+          bought, covering gameplay, story, and how well they run on a system.
         </p>
       </div>
       <div className="mt-[64px]">
@@ -34,14 +36,14 @@ const Reviews = () => {
             depth: 10,
             modifier: 2.5,
             slideShadows: true,
-        
           }}
+          // className="!w-full relative bg-[#001B30]"
+          spaceBetween={12}
           pagination={{ el: ".swiper-pagination", clickable: true }}
           navigation={{
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
           }}
-      
           breakpoints={{
             0: {
               slidesPerView: "auto",
@@ -57,15 +59,15 @@ const Reviews = () => {
             },
           }}
           modules={[EffectCoverflow, Pagination, Navigation]}
-          className="relative"
+          className="relative "
         >
-          <SwiperSlide className="">
+          <SwiperSlide className="overflow-hidden rounded-[20px]">
             <ReviewCard />
           </SwiperSlide>
-          <SwiperSlide className="">
+          <SwiperSlide className="overflow-hidden rounded-[20px]">
             <ReviewCard />
           </SwiperSlide>
-          <SwiperSlide className="">
+          <SwiperSlide className="overflow-hidden rounded-[20px]">
             <ReviewCard />
           </SwiperSlide>
         </Swiper>

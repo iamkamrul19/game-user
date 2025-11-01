@@ -1,6 +1,5 @@
 import SectionTitle from "@/components/common/SectionTitle";
 import { ISectionGame } from "@/types";
-import React from "react";
 import TrendingCard from "./TrendingCard";
 
 interface Props {
@@ -9,7 +8,7 @@ interface Props {
 
 const Trending = ({ games }: Props) => {
   return (
-    <section className="bg-[#232323] section">
+    <section className="bg-[#232323] section relative -mt-[100px] lg:-mt-[150px] pt-[100px] lg:pt-[150px] z-10 trending-clip-path">
       <div className="main-container">
         <SectionTitle title="Trending" showIcon={true} />
         <div className="mt-[50px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[35px]">

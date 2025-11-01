@@ -5,18 +5,18 @@ import UsersIcon from "@/components/icons/UsersIcon";
 
 export const WHY_GG_DATA = [
   {
-    title: "Great deals available.",
-    description: "Over 75K digital items",
+    title: "Best price",
+    description: "Competitive Pricing",
     icon: <DealIcon className="#F8C431" />,
   },
   {
     title: "Secured payments",
-    description: "200+ payments method",
+    description: "Multiple Payment Methods",
     icon: <LockIcon className="#F8C431" />,
   },
   {
-    title: "Loyal users",
-    description: "10k customers in 180 countries",
+    title: "Customer service",
+    description: "Fast Customer Support",
     icon: <UsersIcon className="#F8C431" />,
   },
   {

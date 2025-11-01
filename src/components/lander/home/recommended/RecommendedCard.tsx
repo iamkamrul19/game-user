@@ -3,7 +3,6 @@ import { ISectionGame } from "@/types";
 import { calculateDiscount } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 interface Props {
   item: ISectionGame;
@@ -12,7 +11,7 @@ interface Props {
 const RecommendedCard = ({ item }: Props) => {
   return (
     <Link href={`/game-details/${item.game_id}`} className="group relative">
-      <div className="border-[1px] border-white/30 rounded-[10px] overflow-hidden relative">
+      <div className="border-[1px] border-white/30 rounded-[10px] overflow-hidden relative group-hover:scale-105 transition-all duration-300">
         <Image
           className="w-full h-[223px] object-cover object-center"
           src={item?.image_url?.[0]}

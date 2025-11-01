@@ -8,20 +8,21 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { A11y, Navigation, Pagination } from "swiper/modules";
 
-import SectionTitle from "@/components/common/SectionTitle";
-import { IPreOrders } from "@/types";
-import React from "react";
-import Image from "next/image";
 import PriceSection from "@/components/common/PriceSection";
+import SectionTitle from "@/components/common/SectionTitle";
 import SwipperButtonCom from "@/components/common/swiper/SwipperButtonCom";
+import { IPreOrders } from "@/types";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface Props {
   preOrders: IPreOrders;
-  className?:string
+  className?: string;
 }
 
 const PreOrders = ({ preOrders, className }: Props) => {
   const dataList = preOrders?.games;
+  const router = useRouter();
   return (
     <section className={`section ${className}`}>
       <div className="main-container">
@@ -62,8 +63,11 @@ const PreOrders = ({ preOrders, className }: Props) => {
           >
             {dataList?.map((item) => (
               <SwiperSlide key={item?._id}>
-                <div className="min-h-[550px]">
-                  <div className="h-[437px] rounded-[20px] overflow-hidden">
+                <div
+                  className="min-h-[550px] cursor-pointer"
+                  onClick={() => router.push(`/game-details/${item?.game_id}`)}
+                >
+                  <div className="h-[437px] rounded-[20px] overflow-hidden ">
                     {item?.image_url ? (
                       <Image
                         className="w-full h-full object-cover object-center rounded-[20px]"
@@ -86,7 +90,7 @@ const PreOrders = ({ preOrders, className }: Props) => {
                 </div>
               </SwiperSlide>
             ))}
-            <SwipperButtonCom className="mt-[32px] lg:mt-[54px]"/>
+            <SwipperButtonCom className="mt-[32px] lg:mt-[54px]" />
           </Swiper>
         </div>
       </div>

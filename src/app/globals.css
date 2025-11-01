@@ -148,6 +148,14 @@
   .text-white-gradient {
     @apply bg-gradient-to-b from-white to-[#999999]  text-transparent bg-clip-text;
   }
+  .trending-clip-path {
+    clip-path: none;
+  }
+  @media (min-width: 1024px) {
+    .trending-clip-path {
+      clip-path: polygon(0% 4%, 86% 11%, 100% 11%, 100% 100%, 0% 100%);
+    }
+  }
 }
 
 .custom-scrollbar::-webkit-scrollbar {

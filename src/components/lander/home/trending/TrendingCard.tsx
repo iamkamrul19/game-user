@@ -15,8 +15,8 @@ const TrendingCard = ({ item }: Props) => {
     e.preventDefault();
   };
   return (
-    <Link href={`/game-details/${item.game_id}`} className="group relative">
-      <div className="border-[1px] border-white/30 rounded-[10px] overflow-hidden relative">
+    <Link href={`/game-details/${item.game_id}`} className="group relative ">
+      <div className="border-[1px] border-white/30 rounded-[10px] overflow-hidden relative group-hover:scale-105 transition-all duration-300">
         <Image
           className="w-full h-[223px] object-cover object-center"
           src={item?.image_url?.[0]}
